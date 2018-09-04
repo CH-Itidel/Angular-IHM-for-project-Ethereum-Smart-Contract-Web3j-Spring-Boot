@@ -1,0 +1,27 @@
+<p></p>
+
+<div class="panel panel-primary spacer-view">
+  <div class="panel-heading">Order : {{orderPage.number}}</div>
+  <div class="panel-body">
+    <table class="table table-striped">
+
+        <tr><td>Goods : {{orderPage.goods}}</td></tr>
+        <tr><td>Quanity : {{orderPage.quantity}}</td></tr>
+        <tr><td>Price : {{orderPage.price}}</td></tr>
+        <tr><td>Safe Payement : {{orderPage.safepay}}</td></tr>
+        <tr><td>Invoice Number : {{orderPage.invoiceNumber}}</td></tr>
+        <tr><td>Delivered : {{orderPage.delivered}}</td></tr>
+
+    </table>
+  </div>
+
+    <div class="btn-group btn-group-justified">
+
+      <a class="btn btn-primary" [routerLink]="['/sendPrice', orderPage.number]" *ngIf="orderPage.price==0">Send Price</a>
+      <a class="btn btn-primary" [routerLink]="['/sendInvoice', orderPage.number]" *ngIf="orderPage.invoiceNumber==0 && orderPage.price!=0 && orderPage.safepay!=0">Send Invoice</a>
+      <a class="btn btn-primary" [routerLink]="['/viewInvoice', orderPage.number]" *ngIf="orderPage.price !=0 && orderPage.invoiceNumber !=0 && orderPage.safepay!=0">Show Invoice</a>
+
+    </div>
+    <p></p>
+</div>
+

@@ -1,0 +1,28 @@
+<div class="panel panel-primary spacer-view" [hidden]="orderPage.delivered==true">
+  <div class="panel-heading">Invoice : {{invoicePage.invoiceNumber}}</div>
+  <div class="panel-body">
+    <table class="table table-striped">
+
+      <tr><td>Order Number : {{invoicePage.orderNumber}}</td></tr>
+      <tr><td>Delivery Date : {{invoicePage.deleviryDate}}</td></tr>
+      <tr><td>Order Delivered : {{orderPage.delivered}}</td></tr>
+      <tr *ngIf="orderPage.delivered == true"><td>Real Delivery Date : {{invoicePage.realDeleviryDate}}</td></tr>
+
+
+    </table>
+  </div>
+
+  <p></p>
+</div>
+
+<div class="panel panel-primary spacer-view" [hidden]="orderPage.delivered==false">
+  <div class="panel-heading">Order was delivered successfuly, confirmed by buyer</div>
+  <div class="panel-body">
+
+    <tr><td>Invoice Number : {{invoicePage.invoiceNumber}}</td></tr>
+    <tr><td>Real Delivered Date : {{invoicePage.realDeleviryDate}}</td></tr>
+    <tr><td>Your balance is : {{newBalance}}</td></tr>
+
+
+  </div>
+  </div>

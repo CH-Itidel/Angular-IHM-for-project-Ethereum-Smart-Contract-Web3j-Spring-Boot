@@ -1,0 +1,32 @@
+
+<p></p>
+<div [hidden]="">
+<h3 align="center">Invoices</h3>
+<div class="panel panel-primary spacer-other">
+  <div class="panel-body">
+
+    <table class="table table-striped">
+
+      <tr>
+        <th>Invoice Number</th>
+        <th>Order Number</th>
+        <th>Deleviry Date</th>
+        <th>Real Deleviry Date</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor = "let i of invoicePage" id={{i.invoiceNumber}}>
+        <td>{{i.invoiceNumber}}</td>
+        <td>{{i.orderNumber}}</td>
+        <td>{{i.deleviryDate}}</td>
+        <td>{{i.realDeleviryDate}}</td>
+        <td><button class="btn btn-outline-info" [routerLink]="['/viewOrder', i.invoiceNumber]">View Order</button></td>
+      </tr>
+
+    </table>
+
+  </div>
+
+</div>
+</div>

@@ -1,0 +1,48 @@
+
+<div [hidden]="submitted1">
+<p></p>
+{{diagnostic}}
+
+<div class="container">
+  <h1>Send Invoice : {{invoiceNo}}</h1>
+  <form  #invoiceForm="ngForm">
+    <div class="form-group">
+      <label for="orderNo">Order Number : </label>
+      <input type="text" class="form-control" id="orderNo" disabled="true"  [(ngModel)]="invoice.orderNumber" name="orderNo">
+    </div>
+
+    <div class="form-group">
+      <label for="deleviryDate">Delivery Date</label>
+      <input type="text" class="form-control" id="deleviryDate"
+             required
+             [(ngModel)]="invoice.deleviryDate" name="deleviryDate"
+             #deleviryDate>
+      <div [hidden]="deleviryDate.valid || deleviryDate.untouched"
+           class="alert alert-danger">
+        Delivery Date is Required
+      </div>
+    </div>
+
+
+    <button type="button" class="btn btn-success" (click)="sendInvoice()" [disabled]="!invoiceForm.form.valid">Send Invoice</button>
+
+  </form>
+</div>
+</div>
+
+<div class="panel panel-primary spacer-view" [hidden]="!submitted1">
+  <div class="panel-heading">You sent invoice number : {{invoiceSent.invoiceNumber}}</div>
+  <p></p>
+  <div class="row">
+    <div class="col-xs-3">Order Number</div>
+    <div class="col-xs-9  pull-left">{{ invoiceSent.orderNumber }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Delivery Date</div>
+    <div class="col-xs-9 pull-left">{{ invoiceSent.deleviryDate }}</div>
+  </div>
+
+  <tr *ngIf="orderPage.delivered == true"><td>Real Delivery Date : {{invoiceSent.realDeleviryDate}}</td></tr>
+
+
+</div>

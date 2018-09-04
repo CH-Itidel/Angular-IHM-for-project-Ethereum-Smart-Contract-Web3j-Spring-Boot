@@ -1,0 +1,23 @@
+<p></p>
+
+<div class="panel panel-primary spacer-view">
+  <div class="panel-heading">Invoice : {{invoicePage.invoiceNumber}}</div>
+  <div class="panel-body">
+    <table class="table table-striped">
+
+      <tr><td>Order Number : {{invoicePage.orderNumber}}</td></tr>
+      <tr><td>Order Delivered : {{orderPage.delivered}}</td></tr>
+      <tr *ngIf=""><td>Delivery Date : {{invoicePage.deleviryDate}}</td></tr>
+      <tr *ngIf="orderPage.delivered == true"><td>Real Delivery Date : {{invoicePage.realDeleviryDate}}</td></tr>
+      <tr *ngIf="orderPage.delivered == true"><td>Your Balance Now is : {{balance}}</td></tr>
+
+
+    </table>
+  </div>
+  <div class="btn-group btn-group-justified">
+
+    <a class="btn btn-primary" [routerLink]="['/confirmDelivery', invoicePage.invoiceNumber]" *ngIf="orderPage.delivered==false">Confirm Delivery</a>
+
+  </div>
+  <p></p>
+</div>
